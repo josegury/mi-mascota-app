@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/mascotas"></ion-back-button>
+      </ion-buttons>
+    <ion-title>App - Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-content>
+          <p>
+            Aplicación desarrollada para el control de tratamientos aplicados a sus mascotas. Con ella podrá almacenar información de tratamientos para así llevar un control y en caso de necesidad consultar sus datos o compartirlos con otros usuarios (por ejemplo su veterinario).
+          </p>
+          <p>
+            Al compartir sus mascotas con otros usuarios, estos también podrán editar la información de la misma, lo cual puede resultar útil cuando la mascota está gestionada por varias personas. Además los cambios realizados se actualizarán en tiempo real por el resto de usuarios, es decir, si un usuario cambia un dato de la mascota, automáticamente los datos de esta se actualizaran en todos los usuarios que la tengan asociada.
+          </p>
+          <p>
+              En la aplicación podrá registrar los tratamientos más comunes categorizados en vacunas, desparasitaciones externas e internas. En caso de necesitar introducir otro tipo de tratamiento se ha añadido la categoría "Otros tratamientos" en la que podrá añadir el tratamiento dado a su mascota. 
+          </p>
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+          <ion-card-header>
+              <ion-card-title>Información Desarrollador</ion-card-title>
+            </ion-card-header>
+
+          <ion-card-content>
+            <ion-item>
+                <ion-icon name="contact" slot="start"></ion-icon>
+                <ion-label>Jose Ángel Pardo Cerdán</ion-label>
+              </ion-item>
+
+              <ion-card-subtitle>Información Iconografía</ion-card-subtitle>
+                <ion-item>
+                    <ion-icon name="images" slot="start"></ion-icon>
+                    <ion-label>Iconos desarrollados por Pixel Perfect desde www.flaticon.com</ion-label>
+                  </ion-item>
+          </ion-card-content>
+          
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <p style="text-align: center;">
+                Jose Ángel Pardo Cerdán © {{today | date: 'yyyy'}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+</ion-content>

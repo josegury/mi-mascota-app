@@ -1,0 +1,7 @@
+{
+  "name": "mimascotapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

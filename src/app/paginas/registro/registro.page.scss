@@ -1,0 +1,50 @@
+
+$white-color: #fff;
+$height100: 100%;
+
+ion-grid {
+    width:100%;
+    height: $height100;
+    background: #dfdfdf;
+}
+
+ion-row {
+    height: $height100;
+}
+
+ion-col {
+    border: 1px solid #488aff;
+    background: $white-color;
+}
+
+ion-button {
+    font-weight: 300;
+}
+
+@media (min-width: 240px) and (max-width: 768px) {
+    ion-grid {
+        background: $white-color;
+    }
+    ion-col {
+        border: none;
+    }
+}
+
+.error-message
+  {
+   color: #bf3e3e;
+  }
+
+  .go-to-register
+  {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .aviso-legal{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+  }
+  .aviso-legal ion-checkbox{
+    margin-right: 5px;
+  }

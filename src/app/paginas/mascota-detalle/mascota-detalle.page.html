@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/mascotas"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Mascota</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed" *ngIf="esApp">
+        <ion-fab-button (click)="cambiarFoto()" color="tertiary">
+            <ion-icon name="camera"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+    <img class="aling-imagen" src="{{imagen}}" >  
+    <ion-list lines="full">
+       
+
+        <ion-item>
+            <ion-label position="fixed" color="gris" ><strong>Nombre</strong></ion-label>
+            <ion-input id="name" name="name"  class="aling-right" required type="text" placeholder="Nombre" [(ngModel)]="mascota.nombre" #name="ngModel" ></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed" color="gris" ><strong>Nacimiento</strong></ion-label>
+            <ion-datetime class="aling-right-datetime"
+            displayFormat="DD MMMM YYYY" 
+            month-names="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"
+            [(ngModel)]="mascota.nacimiento" 
+            cancelText="Cancelar"
+            doneText="Ok"
+            [max] = "maxDate"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed" color="gris" ><strong>Peso</strong></ion-label>
+            <ion-input   class="aling-right" min="0" max="100" type="number" placeholder="Peso" [(ngModel)]="mascota.peso"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="gris" ><strong>Especie</strong></ion-label>
+            <ion-select placeholder="Seleccionar" [(ngModel)]="mascota.especie" cancelText="Cancelar" >
+                <ion-select-option *ngFor="let especie of especies" [value]="especie.value">{{especie.value}}</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fixed" color="gris" ><strong>Raza</strong></ion-label>
+            <ion-input  class="aling-right"   type="text" placeholder="Raza" [(ngModel)]="mascota.raza"></ion-input>
+        </ion-item>
+    </ion-list>
+    
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button [disabled]="name.invalid" (click)="guardar()">
+        <ion-icon name="save"></ion-icon>
+    </ion-fab-button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Mascotas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+    <ion-list>
+
+        <ng-container *ngIf="!mascotas || mascotas.length == 0">
+          <p>  
+            <ion-text color="primary">
+                <h1 >Agregue su primera mascota</h1>
+            </ion-text>
+          </p>
+          <div *ngFor="let n of [0,1,2]" padding>
+            <ion-skeleton-text>
+    
+            </ion-skeleton-text>
+            <p>
+              <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+            </p>
+          </div>
+        </ng-container>
+    
+        <ion-item-sliding *ngFor="let mascota of mascotas">
+
+          
+          <ion-item lines="insert" button [routerLink]="['/mascota',mascota.id]">
+            
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col>
+                            <img  class="avatar" src="{{mascota.getImagen()}}">
+                      </ion-col>
+                      <ion-col>
+                        <ion-grid>
+                            <ion-row><h1>{{mascota.nombre}}</h1></ion-row>
+                            <ion-row><strong>{{mascota.especie}} {{mascota.raza}}</strong></ion-row>
+                        </ion-grid>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                
+          </ion-item>
+    
+          <ion-item-options side="end">
+            <ion-item-option (click)="remove(mascota)" color="danger">
+              Borrar
+              <ion-icon name="checkmark" slot="end"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed" routerLink="/mascota-detalle" routerDirection="forward">
+          <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+</ion-content>

@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-buttons slot="end">
+        <ion-button (click) ="presentAlertCompartirMascota()">
+          <ion-icon slot="icon-only" name="share"></ion-icon>
+        </ion-button>
+        <ion-button (click) ="remove()">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+    <ion-title>{{mascota.nombre}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <section>
+    
+    <ion-card [routerLink]="['/mascota-detalle',mascotaId]" >
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col sizeSm="3" sizeXs="6">
+                  <img class="avatar imagen-seccion" src="{{imagen}}">
+            </ion-col>
+            <ion-col >
+              <ion-grid>
+                  <ion-row><h1>{{mascota.nombre}}</h1></ion-row>
+                  <ion-row><strong>{{mascota.raza}}</strong></ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+  </section>
+
+  <section >
+      <ion-grid>
+          <ion-row>
+              <!--Vacunas-->
+              <ion-col sizeSm="3" sizeXs="6" button [routerLink]="['/mascota-tratamientos',tipoVacuna,mascotaId]">
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <img class="imagen-seccion"  src="assets/icon/science/vacuna.svg">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <strong>Vacunas</strong>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-col>
+              <!--Desparasitaciones Externas-->
+              <ion-col sizeSm="3" sizeXs="6" button [routerLink]="['/mascota-tratamientos',tipoDesparasitacionesExternas,mascotaId]">
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <img class="imagen-seccion"  src="assets/icon/science/pipeta.svg">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <strong>Desparasitaciones Externas</strong>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-col>
+              <!--Desparasitaciones Internas-->
+              <ion-col sizeSm="3" sizeXs="6" button [routerLink]="['/mascota-tratamientos',tipoDesparasitacionesInternas,mascotaId]">
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <img class="imagen-seccion"  src="assets/icon/science/botella.svg">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <strong>Desparasitaciones Internas</strong>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-col>
+              <!--Otros Tratamientos-->
+              <ion-col sizeSm="3" sizeXs="6" button [routerLink]="['/mascota-tratamientos',tipoOtros,mascotaId]">
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <img class="imagen-seccion" src="assets/icon/science/termometro.svg">
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col>
+                          <div class="ion-text-center">
+                            <strong>Otros Tratamientos</strong>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>
+              </ion-col>
+          </ion-row>
+          
+      </ion-grid>
+  </section>
+
+</ion-content>

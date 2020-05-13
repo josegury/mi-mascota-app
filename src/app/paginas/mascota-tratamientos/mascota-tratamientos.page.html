@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/mascota"></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{tipoTratamiento}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+      <ng-container *ngIf="!tratamientos || tratamientos.length == 0">
+        <div *ngFor="let n of [0,1,2]" padding>
+          <ion-skeleton-text>
+  
+          </ion-skeleton-text>
+          <p>
+            <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+          </p>
+        </div>
+      </ng-container>
+  
+      <ion-item-sliding *ngFor="let tratamiento of tratamientos">
+
+        
+        <ion-item lines="insert" button [routerLink]="['/mascota-tratamiento', tipoTratamiento, mascotaId, tratamiento.id]" >
+          
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-grid>
+                          <ion-row><h2>{{tratamiento.nombre}}</h2></ion-row>
+                          <ion-row>{{tratamiento.fecha | date :'dd/MM/yyyy' }} <ion-icon *ngIf="tratamiento.proximo_tratamiento" name="redo" class="margen-10-izq-der"></ion-icon> {{tratamiento.proximo_tratamiento | date :'dd/MM/yyyy' }}</ion-row>
+                      </ion-grid>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              
+        </ion-item>
+  
+        <ion-item-options side="end">
+          <ion-item-option (click)="remove(tratamiento.id)" color="danger">
+            Borrar
+            <ion-icon name="checkmark" slot="end"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/mascota-tratamiento', tipoTratamiento, mascotaId]" >
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+</ion-content>
